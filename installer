@@ -27,13 +27,7 @@ echo "Installing Visual Studio Code..." && brew brew install --casks visual-stud
 echo "Installing VLC..." && brew brew install --casks vlc > /dev/null
 
 brew cleanup
-
-if [ -f ./resources/.zshrc];
-then
-    cp ./resources/.zshrc ~/.zshrc
-else
-    wget https://raw.githubusercontent.com/snaky90/MacOS-Config-Install/cf33f7393fecc662fb10f2fcf0f5daa0b9151f96/resources/.zshrc -o ~/.zshrc
-fi
+cp ./resources/.zshrc ~/.zshrc
 
 source ~/.zshrc
 

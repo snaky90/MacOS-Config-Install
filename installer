@@ -9,6 +9,9 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 echo "Installing Xcode Command Line Tools..."
 xcode-select --install
 
+echo "Installing Rosetta 2..."
+/usr/sbin/softwareupdate --install-rosetta --agree-to-license
+
 if test ! $(which brew); then
   echo "Installing homebrew..."
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -19,12 +22,21 @@ brew upgrade > /dev/null
 brew install newt > /dev/null
 
 echo "Installing Apps..."
-echo "Installing python..." && brew install python > /dev/null
+echo "Installing iTerm2..." && brew brew install --cask iterm2 > /dev/null
+echo "Installing latest python..." && brew install python > /dev/null
+echo "Installing latest OpenJDK..." && brew install openjdk > /dev/null
 echo "Installing git..." && brew install git > /dev/null
-echo "Installing Docker..." && brew install --casks docker > /dev/null
-echo "Installing The Unarchiver..." && brew brew install --casks the-unarchiver > /dev/null
-echo "Installing Visual Studio Code..." && brew brew install --casks visual-studio-code > /dev/null
-echo "Installing VLC..." && brew brew install --casks vlc > /dev/null
+echo "Installing Docker..." && brew install --cask docker > /dev/null
+echo "Installing The Unarchiver..." && brew install --cask the-unarchiver > /dev/null
+echo "Installing Visual Studio Code..." && brew install --cask visual-studio-code > /dev/null
+echo "Installing VLC..." && brew install --cask vlc > /dev/null
+echo "Installing Discord..." && brew install --cask discord > /dev/null
+echo "Installing Parallels Desktop..." && brew install --cask parallels > /dev/null
+echo "Installing Steam..." && brew install --cask steam > /dev/null
+echo "Installing Telegram..." && brew install --cask telegram > /dev/null
+echo "Installing Microsoft Word..." && brew install --cask microsoft-word > /dev/null
+echo "Installing Microsoft Excel..." && brew install --cask microsoft-excel > /dev/null
+
 
 brew cleanup
 cp ./resources/.zshrc ~/.zshrc
